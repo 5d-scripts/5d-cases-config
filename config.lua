@@ -60,16 +60,13 @@ _CONFIG =
     {
         generateRandomPlate = function() -- Function used to generate a random vehicle plate
                                          -- Produces a random string in the format "AAA 111"
-                                         -- createRandomNumberGenerator is an internal utility function that handles local scope seeding for math.random().
-                                         -- Make sure to use it when re-writing this function!
-            local random = createRandomNumberGenerator(os.time())
             local plate = ""
             for i = 1, 3 do
-                plate = plate .. string.char(random(65, 90))
+                plate = plate .. string.char(math.random(65, 90))
             end
             plate = plate .. " "
             for i = 1, 3 do
-                plate = plate .. string.char(random(48, 57))
+                plate = plate .. string.char(math.random(48, 57))
             end
 
             return plate
